@@ -1,0 +1,15 @@
+FROM alpine:3.6
+LABEL maintainer="Claudio Ramirez <pub.claudio@gmail.com>"
+
+ENV LANG='C.UTF-8' \
+    pkgs='build-base ca-certificates git libc-dev linux-headers openssl perl perl-utils wget zlib gzip tar git'
+
+RUN set -xv ; \
+    apk update && apk upgrade && \
+    apk add --no-cache ${pkgs} && \
+    update-ca-certificates && \
+    rm -rf /tmp/* /var/tmp/*
+
+COPY pkg_rakudo.pl /
+
+ENTRYPOINT [ "/pkg_rakudo.pl" ]
