@@ -1,0 +1,20 @@
+FROM centos:centos7
+LABEL maintainer="Claudio Ramirez <pub.claudio@gmail.com>"
+
+ENV LANG='en_US.UTF-8' \
+pkgs='git perl-autodie perl-Digest-SHA wget' \
+pkggroup='Development Tools'
+
+RUN set -xv ; \
+sed -i 's/enabled=1/enabled=0/g' /etc/yum/pluginconf.d/fastestmirror.conf && \
+yum -q -y upgrade && \
+ln -fs /usr/share/zoneinfo/Europe/Brussels /etc/localtime && \
+yum -q install -y ${pkgs} && \
+yum -q groupinstall -y "${pkggroup}" && \
+yum -q clean all && \
+rm -rf /usr/lib/locale/locale-archive /usr/share/locale/* && \
+localedef -i en_US -c -f UTF-8 en_US.UTF-8
+
+COPY pkg_rakudo.pl /
+
+ENTRYPOINT [ "/pkg_rakudo.pl" ]

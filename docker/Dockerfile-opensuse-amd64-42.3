@@ -1,0 +1,14 @@
+FROM opensuse:42.3
+LABEL maintainer="Claudio Ramirez <pub.claudio@gmail.com>"
+ENV LANG='en_US.UTF-8' \
+    pkgs='git gcc wget'
+
+RUN set -xv ; \
+    zypper refresh && \
+    zypper update -y && \
+    zypper install --replacefiles -y ${pkgs} && \
+    ln -fs /usr/share/zoneinfo/Europe/Brussels /etc/localtime && \
+
+COPY pkg_rakudo.pl /
+
+ENTRYPOINT [ "/pkg_rakudo.pl" ]

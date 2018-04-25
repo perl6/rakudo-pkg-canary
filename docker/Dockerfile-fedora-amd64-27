@@ -1,0 +1,17 @@
+FROM fedora:27
+LABEL maintainer="Claudio Ramirez <pub.claudio@gmail.com>"
+
+ENV LANG='en_US.UTF-8' \
+pkgs='git perl-core wget' \
+pkggroup='Development Tools'
+
+RUN set -xv ; \
+dnf -q -y upgrade && \
+ln -fs /usr/share/zoneinfo/Europe/Brussels /etc/localtime && \
+dnf -q install -y ${pkgs} && \
+dnf -q groupinstall -y "${pkggroup}" && \
+dnf -q clean all
+
+COPY pkg_rakudo.pl /
+
+ENTRYPOINT [ "/pkg_rakudo.pl" ]
