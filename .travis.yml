@@ -1,25 +1,25 @@
 language: generic
 env:
   global:
-  - RAKUDO_URL="https://rakudo.perl6.org/downloads/rakudo/rakudo-2018.03.tar.gz"
+  - RAKUDO_URL="https://rakudo.perl6.org/downloads/prerelease/rakudo-prerelease.tar.gz"
   matrix:
-    - IMG="alpine-x86_64-3.6"
-    - IMG="alpine-x86_64-3.7"
-    - IMG="centos-x86_64-7"
-    - IMG="debian-amd64-8"
-    - IMG="debian-amd64-9"
-    - IMG="fedora-x86_64-26"
-    - IMG="fedora-x86_64-27"
-    - IMG="opensuse-x86_64-42.3"
-    - IMG="ubuntu-amd64-14.04"
-    - IMG="ubuntu-amd64-16.04"
-    - IMG="ubuntu-amd64-17.10"
-    - IMG="ubuntu-i386-16.04"
-    - IMG="ubuntu-i386-17.10"
+    - TAG="alpine-x86_64-3.6"
+    - TAG="alpine-x86_64-3.7"
+    - TAG="centos-x86_64-7"
+    - TAG="debian-amd64-8"
+    - TAG="debian-amd64-9"
+    - TAG="fedora-x86_64-26"
+    - TAG="fedora-x86_64-27"
+    - TAG="opensuse-x86_64-42.3"
+    - TAG="ubuntu-amd64-14.04"
+    - TAG="ubuntu-amd64-16.04"
+    - TAG="ubuntu-amd64-17.10"
+    - TAG="ubuntu-i386-16.04"
+    - TAG="ubuntu-i386-17.10"
 sudo: required
 services:
   - docker
-install: set -e  
+install: set -e
 script:
-  - docker pull nxadm/rakudo-pkg-canary:$IMG
-  - docker run -ti --rm -e RAKUDO_URL=$RAKUDO_URL nxadm/rakudo-pkg-canary:$IMG
+  - docker pull nxadm/rakudo-pkg-canary:$TAG
+  - docker run -ti --rm -e RAKUDO_URL=$RAKUDO_URL nxadm/rakudo-pkg-canary:$TAG
