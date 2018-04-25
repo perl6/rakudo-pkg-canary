@@ -5,14 +5,16 @@ use feature 'say';
 
 ### Variables ###
 my $install_root = '/opt/rakudo-pkg';
+my $url = $ENV{RAKUDO_URL};
 
 ### Check required environment ###
-check_env( 'RAKUDO_URL') or exit 1;
-my $url = $ENV{RAKUDO_URL};
+if ($url eq "") {
+    say "RAKUDO_URL environment empty!";
+    exit 1;
+}
 
 ### Download & compile Rakudo ###
 build() or exit 1;
-
 say "Rakudo was succesfully compiled.";
 
 ### Test by installing and running it ###
@@ -27,11 +29,13 @@ sub build {
     system('wget', $url, '-O', 'rakudo.tar.gz') == 0 or return 0;
     system('tar', 'xzf', 'rakudo.tar.gz', '-C', 'rakudo', '--strip=1') == 0
         or return 0;
-    unlink('rakudo.tar.gz') or warn($!);
     chdir('rakudo') or die($!);
     # Configure
-    my @configure  = ('perl', './Configure.pl', "--prefix=$install_root",
-                      '--backend=moar', '--gen-moar');
+    my @configure  = (
+        'perl', './Configure.pl',
+        '--backend=moar', '--gen-moar',
+        "--prefix=$install_root"
+    );
 
     system(@configure) == 0 or return 0;
     system('make')     == 0 or return 0;
@@ -41,18 +45,5 @@ sub build {
     system('make', 'install') == 0 or return 0;
     # Clean up
     chdir('/') or die($!);
-    return 1;
-}
-
-sub check_env {
-    my @keys = @_;
-    my $error;
-    for my $key (@keys) {
-        if (! exists $ENV{$key}) {
-            say STDERR "Environment variable $key not set.";
-            $error = 1;
-        }
-    }
-    return 0 if $error;
     return 1;
 }
