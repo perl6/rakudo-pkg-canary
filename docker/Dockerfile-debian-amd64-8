@@ -1,17 +1,16 @@
 FROM debian:jessie
-MAINTAINER Claudio Ramirez <pub.claudio@gmail.com>
+LABEL maintainer="Claudio Ramirez <pub.claudio@gmail.com>"
 
 ENV LANG='C.UTF-8' \
-DEBIAN_FRONTEND='noninteractive' \
-TZ='Europe/Brussels' \
-pkgs='build-essential git lsb-release wget'
+    DEBIAN_FRONTEND='noninteractive' \
+    pkgs='build-essential git lsb-release wget'
 
 RUN set -xv ; \
-apt-get -qq update && \
-apt-get -qq dist-upgrade -y && \
-apt-get -qq install -y ${pkgs} && \
-apt-get -qq clean && \
-rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /*.deb /rakudo*
+    apt-get -qq update && \
+    apt-get -qq dist-upgrade -y && \
+    apt-get -qq install -y ${pkgs} && \
+    apt-get -qq clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY pkg_rakudo.pl /
 

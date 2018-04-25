@@ -6,8 +6,7 @@ ENV LANG='en_US.UTF-8' \
 RUN set -xv ; \
     zypper refresh && \
     zypper update -y && \
-    zypper install --replacefiles -y ${pkgs} && \
-    ln -fs /usr/share/zoneinfo/Europe/Brussels /etc/localtime && \
+    zypper install --replacefiles -y ${pkgs}
 
 COPY pkg_rakudo.pl /
 

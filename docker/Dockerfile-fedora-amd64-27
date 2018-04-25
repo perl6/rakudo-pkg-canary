@@ -6,11 +6,10 @@ pkgs='git perl-core wget' \
 pkggroup='Development Tools'
 
 RUN set -xv ; \
-dnf -q -y upgrade && \
-ln -fs /usr/share/zoneinfo/Europe/Brussels /etc/localtime && \
-dnf -q install -y ${pkgs} && \
-dnf -q groupinstall -y "${pkggroup}" && \
-dnf -q clean all
+    dnf -q -y upgrade && \
+    dnf -q install -y ${pkgs} && \
+    dnf -q groupinstall -y "${pkggroup}" && \
+    dnf -q clean all
 
 COPY pkg_rakudo.pl /
 

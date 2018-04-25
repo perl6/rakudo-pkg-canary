@@ -2,8 +2,6 @@
 use warnings;
 use strict;
 use feature 'say';
-use File::Copy;
-use File::Path qw/remove_tree/;
 
 ### Variables ###
 my $install_root = '/opt/rakudo-pkg';
