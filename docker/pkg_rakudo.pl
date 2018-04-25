@@ -41,7 +41,6 @@ sub build {
     system('make', 'install') == 0 or return 0;
     # Clean up
     chdir('/') or die($!);
-    remove_tree('rakudo') or warn($!);
     return 1;
 }
 
