@@ -12,6 +12,6 @@ RUN set -xv ; \
     apt-get -qq clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-COPY pkg_rakudo.pl /
+COPY compile.sh /
 
-ENTRYPOINT [ "/pkg_rakudo.pl" ]
+ENTRYPOINT [ "/compile.sh" ]

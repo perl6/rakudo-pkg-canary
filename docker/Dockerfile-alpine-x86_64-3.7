@@ -10,6 +10,6 @@ RUN set -xv ; \
     update-ca-certificates && \
     rm -rf /tmp/* /var/tmp/*
 
-COPY pkg_rakudo.pl /
+COPY compile.sh /
 
-ENTRYPOINT [ "/pkg_rakudo.pl" ]
+ENTRYPOINT [ "/compile.sh" ]

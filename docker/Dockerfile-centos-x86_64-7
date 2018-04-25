@@ -14,6 +14,6 @@ RUN set -xv ; \
     rm -rf /usr/lib/locale/locale-archive /usr/share/locale/* && \
     localedef -i en_US -c -f UTF-8 en_US.UTF-8
 
-COPY pkg_rakudo.pl /
+COPY compile.sh /
 
-ENTRYPOINT [ "/pkg_rakudo.pl" ]
+ENTRYPOINT [ "/compile.sh" ]

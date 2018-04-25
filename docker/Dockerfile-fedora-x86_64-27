@@ -11,6 +11,6 @@ RUN set -xv ; \
     dnf -q groupinstall -y "${pkggroup}" && \
     dnf -q clean all
 
-COPY pkg_rakudo.pl /
+COPY compile.sh /
 
-ENTRYPOINT [ "/pkg_rakudo.pl" ]
+ENTRYPOINT [ "/compile.sh" ]
