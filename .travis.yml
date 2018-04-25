@@ -19,6 +19,7 @@ env:
 sudo: required
 services:
   - docker
+install: set -e  
 script:
   - docker pull nxadm/rakudo-pkg-canary:$IMG
   - docker run -ti --rm -e RAKUDO_URL=$RAKUDO_URL nxadm/rakudo-pkg-canary:$IMG
