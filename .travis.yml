@@ -20,5 +20,5 @@ sudo: required
 services:
   - docker
 script:
-  - docker pull nxadm/rakudo-pkg:$IMG
-  - docker run -ti --rm -e RAKUDO_URL=$RAKUDO_URL nxadm/rakudo-pkg:$IMG
+  - docker pull nxadm/rakudo-pkg-canary:$IMG
+  - docker run -ti --rm -e RAKUDO_URL=$RAKUDO_URL nxadm/rakudo-pkg-canary:$IMG
