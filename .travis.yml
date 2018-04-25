@@ -1,7 +1,7 @@
 language: generic
 env:
   global:
-  - RAKUDO_URL="https://rakudo.perl6.org/downloads/rakudo/rakudo-2018.04.tar.gz"
+  - RAKUDO_URL="https://rakudo.perl6.org/downloads/rakudo/rakudo-2018.03.tar.gz"
   matrix:
     - IMG="alpine-x86_64-3.6"
     - IMG="alpine-x86_64-3.7"
