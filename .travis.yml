@@ -22,6 +22,6 @@ services:
   - docker
 install:
   - set -e
-  - if [ -z "$LOCAL_BUILD" ]; then sudo docker pull nxadm/rakudo-pkg-canary:$TAG; else sudo docker build -f docker/Dockerfile-$TAG -t nxadm/rakudo-pkg-canary:$TAG docker; fi
+  - if [ -z "$LOCAL_BUILD" ]; then docker pull nxadm/rakudo-pkg-canary:$TAG; else docker build -f docker/Dockerfile-$TAG -t nxadm/rakudo-pkg-canary:$TAG docker; fi
 script:
-  - sudo docker run -ti --rm -e RAKUDO_URL=$RAKUDO_URL nxadm/rakudo-pkg-canary:$TAG
+  - docker run -ti --rm -e RAKUDO_URL=$RAKUDO_URL nxadm/rakudo-pkg-canary:$TAG
