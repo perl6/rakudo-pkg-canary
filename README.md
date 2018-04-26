@@ -1,10 +1,10 @@
 # rakudo-pkg-canary
 
-[![Build Status](https://travis-ci.org/nxadm/rakudo-pkg-canary.svg?branch=master)](https://travis-ci.org/nxadm/rakudo-pkg-canary)
+[![Build Status](https://travis-ci.org/perl6/rakudo-pkg-canary.svg?branch=master)](https://travis-ci.org/perl6/rakudo-pkg-canary)
 
 Test runs for Rakudo pre-releases on several distributions. The Rakudo tar.gz
 specified in the .travis.yaml (`RAKUDO_URL`) is rebuilt every 24 hours or
-whenever a push happens.
+whenever a push happens. The runs can also be triggered on Travis.
 
 The Docker images used on these runs are automatically update when there is an
 update to the base images of Alpine, CentOS, Debian, Fedora, openSUSE or
