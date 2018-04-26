@@ -1,8 +1,8 @@
 language: generic
 env:
   global:
-    - RAKUDO_URL="https://rakudo.perl6.org/downloads/prerelease/rakudo-prerelease.tar.gz"
-    #- RAKUDO_URL="https://rakudo.perl6.org/downloads/rakudo/rakudo-2018.03.tar.gz"
+    #- RAKUDO_URL="https://rakudo.perl6.org/downloads/prerelease/rakudo-prerelease.tar.gz"
+    - RAKUDO_URL="https://rakudo.perl6.org/downloads/rakudo/rakudo-2018.03.tar.gz"
     - LOCAL_BUILD="1"
   matrix:
     - TAG="alpine-x86_64-3.6"
@@ -16,10 +16,10 @@ env:
     - TAG="ubuntu-amd64-14.04"
     - TAG="ubuntu-amd64-16.04"
     - TAG="ubuntu-amd64-17.10"
-    #- TAG="ubuntu-amd64-18.04"
+    - TAG="ubuntu-amd64-18.04"
     - TAG="ubuntu-i386-16.04"
     - TAG="ubuntu-i386-17.10"
-    #- TAG="ubuntu-i386-18.04"
+    - TAG="ubuntu-i386-18.04"
 sudo: required
 services:
   - docker
