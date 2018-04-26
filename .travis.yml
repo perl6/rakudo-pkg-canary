@@ -2,7 +2,7 @@ language: generic
 env:
   global:
   - RAKUDO_URL="https://rakudo.perl6.org/downloads/prerelease/rakudo-prerelease.tar.gz"
-  - LOCAL_BUILD=""
+  - LOCAL_BUILD="1"
   matrix:
     - TAG="alpine-x86_64-3.6"
     - TAG="alpine-x86_64-3.7"
@@ -22,6 +22,6 @@ services:
   - docker
 install:
   - set -e
-  - if [ -z "$LOCAL_BUILD" ]; then docker pull nxadm/rakudo-pkg-canary:$TAG; else cd docker; docker build -f docker/Dockerfile-$TAG -t nxadm/rakudo-pkg-canary:$TAG docker; fi
+  - if [ -z "$LOCAL_BUILD" ]; then sudo docker pull nxadm/rakudo-pkg-canary:$TAG; else cd docker; sudo docker build -f docker/Dockerfile-$TAG -t nxadm/rakudo-pkg-canary:$TAG docker; fi
 script:
-  - docker run -ti --rm -e RAKUDO_URL=$RAKUDO_URL nxadm/rakudo-pkg-canary:$TAG
+  - sudo docker run -ti --rm -e RAKUDO_URL=$RAKUDO_URL nxadm/rakudo-pkg-canary:$TAG
