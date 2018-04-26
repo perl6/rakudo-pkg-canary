@@ -9,7 +9,7 @@ fi
 wget $RAKUDO_URL -O /var/tmp/rakudo.tar.gz
 tar xvzf /var/tmp/rakudo.tar.gz
 cd rakudo*
-perl /Configure.pl --backend=moar --gen-moar --prefix=$PREFIX
+perl ./Configure.pl --backend=moar --gen-moar --prefix=$PREFIX
 make
 make test
 make install

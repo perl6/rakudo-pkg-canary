@@ -2,7 +2,7 @@ FROM alpine:3.7
 LABEL maintainer="Claudio Ramirez <pub.claudio@gmail.com>"
 
 ENV LANG='C.UTF-8' \
-    pkgs='build-base ca-certificates git libc-dev linux-headers openssl perl perl-utils wget zlib gzip tar git'
+    pkgs='bash build-base ca-certificates git libc-dev linux-headers openssl perl perl-utils wget zlib gzip tar git'
 
 RUN set -xv ; \
     apk update && apk upgrade && \
