@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -exv
 
 PREFIX="/opt/rakudo-pkg"
 if [ -z "$RAKUDO_URL" ]; then
