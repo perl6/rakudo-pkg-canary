@@ -11,5 +11,5 @@ RUN set -xv ; \
     rm -rf /tmp/* /var/tmp/*
 
 COPY compile.sh /
+ENTRYPOINT [ "bash", "/compile.sh" ]
 
-ENTRYPOINT [ "/compile.sh" ]

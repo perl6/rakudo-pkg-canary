@@ -14,4 +14,4 @@ RUN set -xv ; \
 
 COPY compile.sh /
 
-ENTRYPOINT [ "/compile.sh" ]
+ENTRYPOINT [ "bash", "/compile.sh" ]
