@@ -1,4 +1,4 @@
-FROM nxadm/ubuntu-i386:17.10
+FROM ubuntu:bionic
 LABEL maintainer="Claudio Ramirez <pub.claudio@gmail.com>"
 
 ENV LANG='C.UTF-8' \

@@ -11,5 +11,7 @@ RUN set -xv ; \
     rm -rf /tmp/* /var/tmp/*
 
 COPY compile.sh /
+
+# Workaround: build fails with sh despite shebang.
 ENTRYPOINT [ "bash", "/compile.sh" ]
 

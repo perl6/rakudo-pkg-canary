@@ -16,8 +16,10 @@ env:
     - TAG="ubuntu-amd64-14.04"
     - TAG="ubuntu-amd64-16.04"
     - TAG="ubuntu-amd64-17.10"
+    - TAG="ubuntu-amd64-18.04"
     - TAG="ubuntu-i386-16.04"
     - TAG="ubuntu-i386-17.10"
+    - TAG="ubuntu-i386-18.04"
 sudo: required
 services:
   - docker
