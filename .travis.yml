@@ -2,6 +2,7 @@ language: generic
 env:
   global:
   - RAKUDO_URL="https://rakudo.perl6.org/downloads/prerelease/rakudo-prerelease.tar.gz"
+  - LOCAL_BUILD=""
   matrix:
     - TAG="alpine-x86_64-3.6"
     - TAG="alpine-x86_64-3.7"
