@@ -13,6 +13,6 @@ RUN set -xv ; \
 COPY compile.sh /
 
 # Workaround: build fails with sh despite shebang.
-CMD [ "-c", "/compile.sh" ]
+CMD [ "/compile.sh" ]
 ENTRYPOINT [ "bash" ]
 
