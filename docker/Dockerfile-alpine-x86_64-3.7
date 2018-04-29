@@ -7,11 +7,10 @@ ENV LANG='C.UTF-8' \
 RUN set -xv ; \
     apk update && apk upgrade && \
     apk add --no-cache ${pkgs} && \
-    # Workaround: build fails with sh despite shebang.
-    sed -i -e "s/bin\/ash/bin\/bash/" /etc/passwd && \
     update-ca-certificates && \
     rm -rf /tmp/* /var/tmp/*
 
 COPY compile.sh /
 
-ENTRYPOINT [ "/compile.sh" ]
+# Workaround: build fails with sh despite shebang.
+ENTRYPOINT [ "sh", "-c", "/compile.sh" ]
