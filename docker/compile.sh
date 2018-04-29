@@ -15,4 +15,4 @@ make test
 make install
 /opt/rakudo-pkg/bin/perl6 -v
 
-exit 0;
+exit 0
