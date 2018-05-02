@@ -2,16 +2,16 @@ language: generic
 env:
   global:
     - RAKUDO_URL="https://rakudo.perl6.org/downloads/prerelease/rakudo-prerelease.tar.gz"
-    #- RAKUDO_URL="https://rakudo.perl6.org/downloads/rakudo/rakudo-2018.03.tar.gz"
     - LOCAL_BUILD="1"
   matrix:
-    #- TAG="alpine-x86_64-3.6"
-    #- TAG="alpine-x86_64-3.7"
+    # - TAG="alpine-x86_64-3.6"
+    # - TAG="alpine-x86_64-3.7"
     - TAG="centos-x86_64-7"
     - TAG="debian-amd64-8"
     - TAG="debian-amd64-9"
     - TAG="fedora-x86_64-26"
     - TAG="fedora-x86_64-27"
+    - TAG="fedora-x86_64-28"
     - TAG="opensuse-x86_64-42.3"
     - TAG="ubuntu-amd64-14.04"
     - TAG="ubuntu-amd64-16.04"
