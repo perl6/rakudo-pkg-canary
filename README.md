@@ -16,6 +16,6 @@ is the fastest option. To force an update of the remote DockerHub images,
 create a tag in the form of `dh<date>-<revision>`, e.g. `dh20180421-01`.
 
 **This repository is not intended for end users, but as part of the Perl 6 CI
-infrastructure. See [rakudo-pkg](https://github.com/nxadm/) for user
-packages.**
+infrastructure. See [rakudo-pkg](https://github.com/nxadm/rakudo-pkg) for user
+packages and repositories.**
 
