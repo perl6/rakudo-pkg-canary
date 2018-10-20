@@ -1,3 +1,4 @@
+---
 language: generic
 env:
   global:
@@ -13,13 +14,16 @@ env:
     - TAG="fedora-x86_64-27"
     - TAG="fedora-x86_64-28"
     - TAG="opensuse-x86_64-42.3"
+    - TAG="opensuse-x86_64-15.0"
     - TAG="ubuntu-amd64-14.04"
     - TAG="ubuntu-amd64-16.04"
     - TAG="ubuntu-amd64-17.10"
     - TAG="ubuntu-amd64-18.04"
+    - TAG="ubuntu-amd64-18.10"
     - TAG="ubuntu-i386-16.04"
     - TAG="ubuntu-i386-17.10"
     - TAG="ubuntu-i386-18.04"
+    - TAG="ubuntu-i386-18.10"
 sudo: required
 services:
   - docker
